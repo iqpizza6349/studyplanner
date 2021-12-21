@@ -1,0 +1,38 @@
+<html>
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="form-group">
+            <body>
+            <div>
+                <label for="subject"><b>제목:</b></label>
+                <label>{{post.title}}</label>
+            </div>
+            <div>
+                <label for="writer"><b>작성자:</b></label>
+                <label>{{post.writer}}</label>
+            </div>
+            <div>
+                <label for="created_at"><b>작성일:</b></label>
+                <label>{{post.created_at}}</label>
+            </div>
+            <div>
+                <label for="contents"><b>내용:</b></label>
+                <label>{{post.contents}}</label>
+                <br><br>
+            </div>
+            <div>
+                {% if post.photos %}
+                <img src = "{{ post.photos.url }}" alt="" width="600" height="400">
+                <br>
+                {% endif %}
+                <br>
+            </div>
+            <div>
+                <button type="submit" name="delete" onclick="location.href='../detail/{{post.id}}/remove'">삭제</button>
+                <button class="btn btn-primary">돌아가기</button>
+            </div>
+            </body>
+        </div>
+    </div>
+</div>
+</html>

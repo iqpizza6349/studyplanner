@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>study planner</h1>
+<ul>
+    <li><a href="/planners">planner</a></li>
+    <li><a href="/board">board</a></li>
+</ul>
+
+<div class = "row mt-5">
+    {% if request.session.user %}
+    <div class = "col-3">
+        <button class ="btn btn-primary btn-block" onclick = "location.href ='../../member/logout'">로그아웃</button>
+    </div>
+
+    {% else %}
+    <div class = "col-3">
+        <button class ="btn btn-primary btn-block" onclick = "location.href ='../../member/login/'">로그인</button>
+    </div>
+    <div class = "col-3">
+        <button class ="btn btn-primary btn-block" onclick = "location.href ='../../member/register/'">회원가입</button>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

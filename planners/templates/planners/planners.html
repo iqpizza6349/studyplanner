@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>스터디 플래너</title>
+</head>
+<body>
+<div class="container">
+    <table class="table">
+        <thead class="thead-light">
+        <tr class="text-center">
+            <th scope="col">과목</th>
+            <th scope="col">목표</th>
+            <th scope="col">달성</th>
+            <th scope="col">시간</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for board in boards %}
+        <tr class="text-center">
+            <th scope="row">
+                <span><a href="/planners/plandetail/{{ board.id }}/">{{ board.subject }}</a></span>
+            </th>
+            <td>
+                <span>{{ board.goal }}</span>
+            </td>
+            <td>
+                <span>{{ board.passs }}</span>
+            </td>
+            <td>
+                <span>{{ board.time }}</span>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-auto mr-auto"></div>
+    </div>
+</div>
+</div>
+
+<form action="", method="post">
+    {% csrf_token %}
+    <div>
+        <label for="subject">과목:</label>
+        <input type="text" name="subject" />
+    </div>
+    <div>
+        <label for="goal">목표:</label>
+        <input type="text" name="goal" />
+    </div>
+    <div>
+        <label for="passs">달성:</label>
+        <input type="text" name="passs" />
+    </div>
+    <div>
+        <label for="time">시간:</label>
+        <input type="text" name="time" />
+    </div>
+    <div class="button">
+        <button type="submit">저장</button>
+    </div>
+</form>
+</body>
+</html>
+{% endblock %}

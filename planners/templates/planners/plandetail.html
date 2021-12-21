@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="form-group">
+            <form action="", method="post">
+                {% csrf_token %}
+                <div>
+                    <label for="subject">과목:</label>
+                    <input type="text" name="subject" value= "{{board.subject}}"/>
+                </div>
+                <div>
+                    <label for="goal">목표:</label>
+                    <input type="text" name="goal" value= "{{board.goal}}"/>
+                </div>
+                <div>
+                    <label for="passs">달성:</label>
+                    <input type="text" name="passs" value= "{{board.passs}}"/>
+                </div>
+                <div>
+                    <label for="time">시간:</label>
+                    <input type="text" name="time" value= "{{board.time}}"/>
+                </div>
+                <div class="button">
+                    <button type="submit" name="insert" onclick="location.href='../../plandetail/{{board.id}}/'">저장</button>
+                    <button type="submit" name="delete" onclick="location.href='../../plandetail/{{board.id}}/'">삭제</button>
+                </div>
+            </form>
+        </div>
+        <button class="btn btn-primary">돌아가기</button>
+    </div>
+</div>
+{% endblock %}
